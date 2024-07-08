@@ -1,15 +1,38 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
 import './index.css'
-import Footer from './footer'
-import Header from './header'
+import { createBrowserRouter, RouterProvider } from 'react-router-dom'
+import App from './app'
+import Home from './home'
 import Products from './products'
-
+import Cart from './cart'
+const router=createBrowserRouter([
+  {
+    path:"/",
+    element:<App/>,
+    children:[
+      {
+        path:"products",
+        element:<Products/>
+      },
+      {
+        path:"cart",
+        element:<Cart/>
+      },
+      {
+        path:"home",
+        element:<Home/>
+      },
+      {
+        index:true,
+        element:<Home/>
+      }
+    ]
+  }
+])
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-    <Header/>
-    <Products/>
-    <Footer/>
+    <RouterProvider router={router}/>
   </React.StrictMode>,
 )
 
