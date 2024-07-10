@@ -1,33 +1,26 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
 import './index.css'
-import { createBrowserRouter, RouterProvider } from 'react-router-dom'
-import App from './app'
+import { createBrowserRouter,RouterProvider } from 'react-router-dom'
+import Route from './route'
 import Home from './home'
-import Products from './products'
 import Cart from './cart'
+import Products from './products'
 const router=createBrowserRouter([
   {
     path:"/",
-    element:<App/>,
-    children:[
-      {
-        path:"products",
-        element:<Products/>
-      },
-      {
-        path:"cart",
-        element:<Cart/>
-      },
-      {
-        path:"home",
-        element:<Home/>
-      },
-      {
-        index:true,
-        element:<Home/>
-      }
-    ]
+    element:<Route/>,
+    errorElement:<p>Something Went Wrong !</p>,
+    children:[{
+      path:"home",
+      element:<Home/>
+    },{
+      path:"cart",
+      element:<Cart/>
+    },{
+      path:"products",
+      element:<Products/>
+    }]
   }
 ])
 ReactDOM.createRoot(document.getElementById('root')).render(

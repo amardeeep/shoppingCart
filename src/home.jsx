@@ -1,4 +1,7 @@
-const Home=()=>{
-    return <div>Home Content</div>
+function Home(){
+    return (
+        <div>Home Content</div>
+    )
+
 }
 export default Home
