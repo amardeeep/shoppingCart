@@ -4,7 +4,6 @@ import { useLocation } from "react-router-dom";
 function Cart(){
     const location=useLocation();
     const arraycart=location.state;
-    console.log(arraycart)
     return (
         <div>
             Cart Content

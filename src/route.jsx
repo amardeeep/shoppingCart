@@ -17,17 +17,22 @@ const useProducts=()=>{
             
         })
         .then((response)=>{
-            setProducts(response)
+            setProducts(response.map(item=>{
+                Object.defineProperty(item,"quantity",{value:0})
+                return {
+                    item
+                }
+            }))
         })
         .catch((error)=>{setError(error)})
         .finally(()=>setLoading(false))
 
     },[])
-    return {products,error,loading}
+    return {products,error,loading,setProducts}
 }
 function Route(){
-    const [cart,setCart]=useState([]);
-    const {products,error,loading}=useProducts();
+    //const [cart,setCart]=useState([]);
+    const {products,error,loading,setProducts}=useProducts();
     if(loading){
         return(
             <p>Loading...</p>
@@ -42,8 +47,8 @@ function Route(){
         <div>
             <h2>Route Content</h2>
             <Link to={"/products"} state={products} ><h3>Products</h3></Link>
-            <Link to={"/cart"} state={cart} ><h3>Cart</h3></Link>
-            <Outlet context={[products,cart,setCart]}/>
+            <Link to={"/cart"} state={products} ><h3>Cart</h3></Link>
+            <Outlet context={[products,setProducts]}/>
         </div>
     )
 }

@@ -1,25 +1,24 @@
 import { useOutletContext } from "react-router-dom"
 
 function Products(){
-    const [products,,setCart]=useOutletContext();
+    const [products,setProducts]=useOutletContext();
+    console.log(products)
+    const handleAddToCart=()=>{
+        setProducts(prevProducts=>{
+
+        })
+    }
     return (
         <div>
             Product Content
             <ul>
                 <li>{products.map(item=>{
                     return(
-                        <div key={item.id}>
-                            <h3>{item.title}</h3>
-                            <p>{item.descirption}</p>
-                            <p>{item.price}</p>
-                            <button onClick={()=>{
-                                setCart(cart=>{
-                                    return[
-                                        ...cart,
-                                        {item,quantity:0}
-                                    ]
-                                })
-                            }}>Add to Cart</button>
+                        <div key={item.item.id}>
+                            <h3>{item.item.title}</h3>
+                            <p>{item.item.descirption}</p>
+                            <p>{item.item.price}</p>
+                            <button >Add to Cart</button>
                             <button >Remove from Cart</button>
                         </div>
                     )
