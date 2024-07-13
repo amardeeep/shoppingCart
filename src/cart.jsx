@@ -1,13 +1,17 @@
-import { useOutletContext } from "react-router-dom"
+
+import { useLocation } from "react-router-dom";
 
 function Cart(){
-    const[cart]=useOutletContext();
+    const location=useLocation();
+    const arraycart=location.state;
+    console.log(arraycart)
     return (
         <div>
             Cart Content
             <ul>
-                <li>{cart.map(item=>{
-                    <h3>{item.title}</h3>
+                <li>{arraycart&&arraycart.map(item=>{
+                    return (
+                    <h3 key={item.item.id}>{item.item.title}</h3>)
                 })}</li>
             </ul>
         </div>

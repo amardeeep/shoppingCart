@@ -1,14 +1,12 @@
 import { useOutletContext } from "react-router-dom"
 
 function Products(){
-    const [products,setCart]=useOutletContext();
-    console.log(products)
+    const [products,,setCart]=useOutletContext();
     return (
         <div>
             Product Content
             <ul>
                 <li>{products.map(item=>{
-                    console.log(item)
                     return(
                         <div key={item.id}>
                             <h3>{item.title}</h3>
@@ -18,11 +16,11 @@ function Products(){
                                 setCart(cart=>{
                                     return[
                                         ...cart,
-                                        {item}
+                                        {item,quantity:0}
                                     ]
                                 })
                             }}>Add to Cart</button>
-                            <button>Remove from Cart</button>
+                            <button >Remove from Cart</button>
                         </div>
                     )
                 })}</li>

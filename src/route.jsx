@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react"
-import { Outlet } from "react-router-dom"
+import { Link, Outlet } from "react-router-dom"
+
 
 const useProducts=()=>{
     const [products,setProducts]=useState(null);
@@ -25,7 +26,7 @@ const useProducts=()=>{
     return {products,error,loading}
 }
 function Route(){
-    const [cart,setCart]=useState(null);
+    const [cart,setCart]=useState([]);
     const {products,error,loading}=useProducts();
     if(loading){
         return(
@@ -40,6 +41,8 @@ function Route(){
     return (
         <div>
             <h2>Route Content</h2>
+            <Link to={"/products"} state={products} ><h3>Products</h3></Link>
+            <Link to={"/cart"} state={cart} ><h3>Cart</h3></Link>
             <Outlet context={[products,cart,setCart]}/>
         </div>
     )
