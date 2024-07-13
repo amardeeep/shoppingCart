@@ -18,7 +18,7 @@ const useProducts=()=>{
         })
         .then((response)=>{
             setProducts(response.map(item=>{
-                Object.defineProperty(item,"quantity",{value:0})
+                item.quantity=0
                 return {
                     item
                 }
