@@ -17,7 +17,7 @@ function Products(){
         const nextProducts=[]
         for(let prod of products){
             if(prod.id==productid){
-                prod.quantity--
+                if(prod.quantity!==0){prod.quantity--}
             }
             nextProducts.push(prod)
         }
@@ -33,7 +33,7 @@ function Products(){
                         <div key={product.id}>
                             <h3>{product.title}</h3>
                             <p>{product.descirption}</p>
-                            <p>{product.price}</p>
+                            <p>{product.price} $</p>
                             <button onClick={()=>{handleAdd(product.id)}}>Add to Cart</button>
                             <button onClick={()=>{handleRemove(product.id)}}>Remove from Cart</button>
                         </div>

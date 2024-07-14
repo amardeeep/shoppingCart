@@ -31,8 +31,15 @@ const useProducts=()=>{
     return {products,error,loading,setProducts}
 }
 function Route(){
-    //const [cart,setCart]=useState([]);
+    let itemInCart=0;
     const {products,error,loading,setProducts}=useProducts();
+    if(products){
+        for(let product of products){
+            if(product.quantity>0){
+                itemInCart++
+            }
+        }
+    }
     if(loading){
         return(
             <p>Loading...</p>
@@ -47,7 +54,7 @@ function Route(){
         <div>
             <h2>Route Content</h2>
             <Link to={"/products"} state={products} ><h3>Products</h3></Link>
-            <Link to={"/cart"} state={products} ><h3>Cart</h3></Link>
+            <Link to={"/cart"} state={products} ><h3>Cart {itemInCart}</h3></Link>
             <Outlet context={[products,setProducts]}/>
         </div>
     )
