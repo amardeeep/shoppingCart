@@ -11,7 +11,16 @@ function Products(){
             }
             nextProducts.push(prod)
         }
-        console.log(nextProducts)
+        setProducts(nextProducts)
+    }
+    function handleRemove(productid){
+        const nextProducts=[]
+        for(let prod of products){
+            if(prod.id==productid){
+                prod.quantity--
+            }
+            nextProducts.push(prod)
+        }
         setProducts(nextProducts)
     }
     
@@ -26,7 +35,7 @@ function Products(){
                             <p>{product.descirption}</p>
                             <p>{product.price}</p>
                             <button onClick={()=>{handleAdd(product.id)}}>Add to Cart</button>
-                            <button >Remove from Cart</button>
+                            <button onClick={()=>{handleRemove(product.id)}}>Remove from Cart</button>
                         </div>
                     )
                 })}</li>
