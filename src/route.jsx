@@ -17,12 +17,12 @@ const useProducts=()=>{
             
         })
         .then((response)=>{
-            setProducts(response.map(item=>{
-                item.quantity=0
-                return {
-                    item
-                }
-            }))
+            const nextResponse=[];
+            for(let respon of response){
+                   respon.quantity=0,
+                   nextResponse.push(respon) 
+            }
+            setProducts(nextResponse)
         })
         .catch((error)=>{setError(error)})
         .finally(()=>setLoading(false))
