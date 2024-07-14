@@ -6,6 +6,7 @@ import Route from './route'
 import Home from './home'
 import Cart from './cart'
 import Products from './products'
+import Checkout from './checkout'
 const router=createBrowserRouter([
   {
     path:"/",
@@ -21,6 +22,9 @@ const router=createBrowserRouter([
       path:"products",
       element:<Products/>
     }]
+  },{
+    path:"/checkout",
+    element:<Checkout/>
   }
 ])
 ReactDOM.createRoot(document.getElementById('root')).render(
