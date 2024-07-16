@@ -21,7 +21,11 @@ const router=createBrowserRouter([
     },{
       path:"products",
       element:<Products/>
-    }]
+    },
+  {
+    index:true,
+    element:<Home/>
+  }]
   },{
     path:"/checkout",
     element:<Checkout/>

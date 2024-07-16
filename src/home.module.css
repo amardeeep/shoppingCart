@@ -1,0 +1,7 @@
+.navigation{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    position: fixed;
+    background-color: #020817d0;
+}
