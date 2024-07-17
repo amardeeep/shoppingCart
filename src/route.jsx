@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react"
 import { Link, Outlet } from "react-router-dom"
-import home from './home.module.css'
+
 
 const useProducts=()=>{
     const [products,setProducts]=useState(null);
@@ -51,14 +51,18 @@ function Route(){
         )
     }
     return (
-        <div >
-            <div className={home.navigation}>
-            <h2>Merchant Aisle </h2>
-            <Link to={'/home'}> <h3>Home</h3> </Link>
-            <Link to={"/products"} state={products} ><h3>Products</h3></Link>
-            <Link to={"/cart"} state={products} ><h3>Cart {itemInCart}</h3></Link>
+        <div  className=" margin0 ">
+            <div className="spreadEnd blackBg fixed width100vw">
+            <h2 className="white">Merchant Aisle </h2>
+            <div className='nav '>
+            <Link className="link" to={'/home'}> <h3>Home</h3> </Link>
+            <Link className="link" to={"/products"} state={products} ><h3>Products</h3></Link>
+            <Link className="link" to={"/cart"} state={products} ><h3>Cart {itemInCart}</h3></Link>
             </div>
+            </div>
+            <div className="paddingTop8rem paddingLeft3rem">
             <Outlet context={[products,setProducts]}/>
+            </div>
         </div>
     )
 }

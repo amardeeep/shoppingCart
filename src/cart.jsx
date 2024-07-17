@@ -18,6 +18,7 @@ function Cart(){
                         return (
                             <div key={item.id} >
                                 <h3 >{item.title}</h3>
+                                <img src={item.image} className="rem5" />
                                 <p>Price : {item.price}</p>
                                 <p>Quantity : {item.quantity}</p>
                                 
