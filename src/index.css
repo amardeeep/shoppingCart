@@ -85,13 +85,12 @@
     gap: 2rem;
     grid-auto-rows: minmax(100px,auto);
   }
-  .centre{
-    text-align: center;
-  }
-  .spread_between{
+  
+  .flexcenter{
     display: flex;
-    justify-content: space-evenly;
+    justify-content: center;
     flex-direction: row;
+    gap: 10px;
   }
   .button{
     padding: 0.5rem 1rem;
@@ -104,6 +103,8 @@
   .button:hover{
     background-color: black;
     color: white;
+    transform: rotate(180deg);
+    
   }
   .spreadEnd{
     display: flex;
@@ -123,6 +124,10 @@
   .paddingLeft3rem{
     padding-left: 3rem;
   }
+  .paddingright3rem{
+    padding-right: 3rem;
+  }
+  
   .product{
     padding: 4px;
     display: grid;

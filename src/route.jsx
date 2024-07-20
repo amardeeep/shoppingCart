@@ -62,6 +62,12 @@ function Route(){
             </div>
             <div className="paddingTop8rem paddingLeft3rem">
             <Outlet context={[products,setProducts]}/>
+            <div>
+                <ul>
+                    <li>Made By : deetsy454</li>
+                    <li>Sources</li>
+                </ul>
+            </div>
             </div>
         </div>
     )

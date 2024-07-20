@@ -29,11 +29,11 @@ function Products(){
             {products.map(product=>{
                     return(
                         <div className="product" key={product.id}>
-                            <h3 className="centre">{product.title}</h3>
-                            <img src={product.image} className="centre rem15" />
-                            <p className="centre">Price Per Unit : {product.price} $</p>
-                            <nav className="spread_between"><button className="button" onClick={()=>{handleAdd(product.id)}}>Add to Cart</button>
-                            <button className="button" onClick={()=>{handleRemove(product.id)}}>Remove from Cart</button></nav>
+                            <h3 className="flexcenter ">{product.title}</h3>
+                            <img src={product.image} className="center rem15" />
+                            <p className="flexcenter">Price Per Unit : {product.price} $</p>
+                            <nav className=" flexcenter spread_between"><button className="button" onClick={()=>{handleAdd(product.id)}}>Add to Cart</button>
+                            <button className=" button" onClick={()=>{handleRemove(product.id)}}>Remove from Cart</button></nav>
                         </div>
                     )
                 })} 
