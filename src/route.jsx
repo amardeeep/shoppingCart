@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react"
 import { Link, Outlet } from "react-router-dom"
-
+import router from './rout.module.css'
 
 const useProducts=()=>{
     const [products,setProducts]=useState(null);
@@ -51,23 +51,23 @@ function Route(){
         )
     }
     return (
-        <div  className=" margin0 ">
-            <div className="spreadEnd blackBg fixed width100vw">
-            <h2 className="white">Merchant Aisle </h2>
-            <div className='nav '>
-            <Link className="link" to={'/home'}> <h3>Home</h3> </Link>
-            <Link className="link" to={"/products"} state={products} ><h3>Products</h3></Link>
-            <Link className="link" to={"/cart"} state={products} ><h3>Cart {itemInCart}</h3></Link>
+        <div  className={router.router}>
+            <div className={router.header}>
+                <h2 className="title">Merchant Aisle </h2>
+                <div className={router.nav}>
+                    <Link className={router.link} to={'/home'}> <h3>Home</h3> </Link>
+                    <Link className={router.link} to={"/products"} state={products} ><h3>Products</h3></Link>
+                    <Link className={router.link} to={"/cart"} state={products} ><h3>Cart {itemInCart}</h3></Link>
+                </div>
             </div>
+            <div className={router.outlet}>
+                <Outlet context={[products,setProducts]}/>
             </div>
-            <div className="paddingTop8rem paddingLeft3rem">
-            <Outlet context={[products,setProducts]}/>
-            <div>
-                <ul>
-                    <li>Made By : deetsy454</li>
-                    <li>Sources</li>
-                </ul>
-            </div>
+            <div className="footer">
+                    <ul>
+                        <li>Made By : deetsy454</li>
+                        <li>Sources</li>
+                    </ul>
             </div>
         </div>
     )

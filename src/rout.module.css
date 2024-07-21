@@ -1,0 +1,39 @@
+.router{
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    gap: 10rem;
+    justify-content: space-between;
+}
+.header{
+    background-color: darkgrey;
+    opacity: 0.5;
+    position: fixed;
+    height: 10rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+}
+.nav{
+    width: 100vw;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+.link{
+    color: bisque;
+    text-decoration: none;
+}
+.link:hover{
+    color: brown;
+    text-decoration: underline blue
+}
+.outlet{
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    padding-top: 15rem;
+    padding-left: 22vw;
+}
