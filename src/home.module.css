@@ -1,0 +1,19 @@
+.home{
+    display: flex;
+    flex-direction: column;
+    gap: 5rem;
+}
+.wrapper{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    gap: 5rem;
+}
+.illust{
+    width: 30rem;
+    height :auto
+}
+.right{
+    text-align: right;
+}
