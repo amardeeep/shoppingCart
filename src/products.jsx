@@ -1,5 +1,5 @@
 import { useOutletContext } from "react-router-dom"
-
+import style from './product.module.css'
 
 function Products(){
     const [products,setProducts]=useOutletContext();
@@ -25,15 +25,17 @@ function Products(){
     }
     
     return (
-        <div className='grid'>
+        <div className={style.product}>
             {products.map(product=>{
                     return(
-                        <div className="product" key={product.id}>
-                            <h3 className="flexcenter ">{product.title}</h3>
-                            <img src={product.image} className="center rem15" />
-                            <p className="flexcenter">Price Per Unit : {product.price} $</p>
-                            <nav className=" flexcenter spread_between"><button className="button" onClick={()=>{handleAdd(product.id)}}>Add to Cart</button>
-                            <button className=" button" onClick={()=>{handleRemove(product.id)}}>Remove from Cart</button></nav>
+                        <div className={style.prod} key={product.id}>
+                            <h3 className={style.textaligncenter}>{product.title}</h3>
+                            <div className={style.imagediv}>
+                            <img src={product.image} className={style.img} />
+                            </div>
+                            <p >Price Per Unit : {product.price} $</p>
+                            <nav className={style.divbtn}><button className={style.btn} onClick={()=>{handleAdd(product.id)}}>Add to Cart</button>
+                            <button className={style.btn} onClick={()=>{handleRemove(product.id)}}>Remove from Cart</button></nav>
                         </div>
                     )
                 })} 
